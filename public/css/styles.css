@@ -1,0 +1,9 @@
+body {
+    font-family: 'Nunito';
+    color: #fff;
+    background-color: #2d3748;
+}
+
+#navbar .navbar-brand img {
+    width: 50px;
+}
