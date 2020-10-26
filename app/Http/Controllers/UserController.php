@@ -20,24 +20,32 @@ class UserController extends Controller
 
     function save(Request $request) {
 
-        $name = $request->input('name');
+        $nome = $request->input('nome');
         $email = $request->input('email');
-        $password = $request->input('password');
+        $senha = $request->input('senha');
 
         $data = [
-          'name' => $name,
+          'nome' => $nome,
           'email' => $email,
-          'password' => $password
+          'senha' => $senha
         ];
 
         $data = DB::table('users')->updateOrInsert($data);
 
         $msg = $data ? 'Usuário cadastrado com sucesso!' : 'Algo de errado aconteceu, tente novamente!';
         echo('<script> alert("'.$msg.'")</script>');
-        if($data) {
+        if(! $data) {
             return view('users.create');
         }
 
         return view('users.index');
+    }
+
+    function delete($id) {
+        if($id) {
+            DB::table('users')->delete('id');
+            $msg = 'Registro excluído com sucesso!';
+            echo('<script> alert("'.$msg.'")</script>');
+        }
     }
 }

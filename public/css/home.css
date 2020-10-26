@@ -1,0 +1,11 @@
+.container-home {
+    display: flex;
+
+}
+
+@media (max-width: 600px) {
+    .container-home {
+        flex-direction: column;
+    }
+
+}

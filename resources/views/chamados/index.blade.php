@@ -18,9 +18,9 @@
                 @foreach($users ?? '' ?? '' as $user)
                 <tr>
                    <td>{{$user->id_usuario}}</td>
-                    <td>{{$user->nome}}</td>
+                    <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->tipo}}</td>
+                    <td>{{$user->type}}</td>
                     <td class="action-col">
                         <form action="/users/{{$user->id_usuario}}/edit" method="post">
                             @csrf
